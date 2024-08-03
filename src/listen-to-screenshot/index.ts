@@ -66,6 +66,8 @@ const screenshot = () => {
   )}.png`;
   const outputPath = path.resolve(screenShotPath, screenshotFileName);
   const execCommand = `${adbDir} exec-out screencap -p > ${outputPath}`;
+  checkAndCreateScreenshotDir();
+
   console.clear();
   console.log('exec screenshot command: ', execCommand);
   consoleApiInfo();
@@ -118,7 +120,6 @@ export const main = async () => {
 
   server.listen(port, () => {
     console.clear();
-    checkAndCreateScreenshotDir();
     consoleApiInfo();
   });
 };
